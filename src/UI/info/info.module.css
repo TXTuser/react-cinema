@@ -1,0 +1,31 @@
+* {
+  margin: auto 0;
+  padding: auto 0;
+  box-sizing: border-box;
+}
+
+.container {
+  box-sizing: border-box;
+  margin: 10px auto;
+  max-width: 500px;
+  border: 2px solid teal;
+  border-radius: 10px;
+}
+
+.logoName {
+  display: flex;
+  gap: 10px;
+}
+
+.mainBlock {
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.content {
+  text-align: center;
+  padding: 10px;
+}

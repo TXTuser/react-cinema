@@ -1,0 +1,5 @@
+select {
+    border: 2px solid teal;
+    border-radius: 10px;
+    padding: 5px;
+}
