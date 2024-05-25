@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilmList from "./components/FilmList";
-import Info from "./UI/info/Info";
 import FilmSort from "./components/FilmSort";
+import imgOnePlusOne from "./image/oneplusne.webp";
+import imgGreenMile from "./image/greenmile.webp";
+import imgForrestGump from "./image/forrestGump.webp";
 
 const App = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  
   const [filmInfo, setFilmInfo] = useState([
     {
       name: "1+1",
@@ -12,7 +17,7 @@ const App = () => {
       place: "Франция • драма",
       director: "Режиссёр: Оливье Накаш",
       role: "В ролях: Франсуа Клюзе, Омар Си",
-      src: "https://upload.wikimedia.org/wikipedia/ru/b/b9/Intouchables.jpg",
+      src: imgOnePlusOne,
     },
     {
       name: "The Green Mile",
@@ -21,7 +26,7 @@ const App = () => {
       place: "США",
       director: "Режиссёр: Фрэнк Дарабонт",
       role: "В ролях: Том Хэнкс, Дэвид Морс",
-      src: "https://play-lh.googleusercontent.com/hZuesjSWMLsJK9UdfKut2LM4fVk7bfMoaGaRMt6gDR5mJSjv0AlbBUnR7PY0oBkzM1j5eoE9csuESEWzzNY",
+      src: imgGreenMile,
     },
     {
       name: "Forrest Gump",
@@ -30,15 +35,19 @@ const App = () => {
       place: "США",
       director: "Режиссёр: Роберт Земекис",
       role: "В ролях: Том Хэнкс, Робин Райт",
-      src: "https://play-lh.googleusercontent.com/ToGy2Cue0epHBdeRkq3dntz8on4ogI1UlKLGqMvgCptTwmpMWVkIxojwVUuvIjrMIFz2UiNjW73xcuofHQ=w240-h480-rw",
+      src: imgForrestGump,
     },
   ]);
 
+  const filterInput = filmInfo.filter((film) => {
+    return film.name.toLowerCase().includes(inputValue.toLowerCase());
+  });
+
   return (
-    <div>
-      <FilmSort></FilmSort>
+<div>
+      <FilmSort inputValue={inputValue} setInputValue={setInputValue} />
       <hr />
-      <FilmList filmInfo={filmInfo} />
+      <FilmList filmInfo={filterInput} />
     </div>
   );
 };

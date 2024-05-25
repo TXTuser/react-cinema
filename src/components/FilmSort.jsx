@@ -2,21 +2,26 @@ import React from "react";
 import Input from "../UI/input/Input";
 import Select from "../UI/select/Select";
 
-const FilmSort = () => {
+const FilmSort = ({ inputValue, setInputValue }) => {
   return (
     <form
       action=""
       className="filmsort"
-      style={{ display: "flex", gap: "10px", justifyContent: "center" }}
+      style={{
+        display: "flex",
+        gap: "10px",
+        justifyContent: "center",
+        margin: "10px",
+      }}
     >
-      <Input></Input>
+      <Input inputValue={inputValue} setInputValue={setInputValue} /> 
       <Select
-      defaulValue='Сортировка'
+        defaultValue="Сортировка"
         options={[
           { value: "title", name: "По названию" },
           { value: "body", name: "По описанию" },
         ]}
-      ></Select>
+      />
     </form>
   );
 };
